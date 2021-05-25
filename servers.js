@@ -1,7 +1,14 @@
+// Developer - @ JustNikhill
+
+
+
 const express = require('express')
 const app = express()
+
 // const cors = require('cors')
 // app.use(cors())
+
+
 const server = require('http').Server(app)
 const io = require('socket.io')(server)
 const { ExpressPeerServer } = require('peer');
@@ -29,7 +36,9 @@ io.on('connection', socket => {
     socket.to(roomId).broadcast.emit('user-connected', userId);
     // messages
     socket.on('message', (message) => {
+      
       //send message to the same room
+      
       io.to(roomId).emit('createMessage', message)
   }); 
 
@@ -40,3 +49,7 @@ io.on('connection', socket => {
 })
 
 server.listen(process.env.PORT||3030)
+
+
+
+// THANKS FOR VISITING OUR ORGANIZATION 
